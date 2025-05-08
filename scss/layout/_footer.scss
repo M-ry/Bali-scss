@@ -1,0 +1,90 @@
+@use "../abstract/" as *;
+
+.footer {
+  background-color: $clr-lightgreen;
+  padding: 4rem 0;
+
+  &__wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: $clr-primary;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      font-family: "poppins", sans-serif;
+
+      &:hover {
+        color: $clr-primary;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+
+    small {
+      color: $clr-primary;
+      font-size: 14px;
+      display: block;
+      font-family: "poppins", sans-serif;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      padding: 0;
+      margin-top: 1rem;
+
+      li {
+        display: inline-block;
+
+        a {
+          color: $clr-primary;
+          font-size: 20px;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $clr-light;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    &__wrapper {
+      padding: 2rem 3rem;
+    }
+
+    &__nav a,
+    &__socials small {
+      font-size: 13px;
+    }
+
+    &__socials ul {
+      gap: 1.2rem;
+
+      li a {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
