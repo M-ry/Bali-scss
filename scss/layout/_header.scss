@@ -1,94 +1,40 @@
 @use "../abstract/" as *;
 
 .header {
-  .offscreen__menu {
-    display: none;
-    justify-content: space-between;
-  }
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: background-color 0.5s ease-in-out;
   &__wrapper {
-    position: absolute;
-    width: 100%;
-    margin: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-block: 2rem;
+    transition: 0.5s ease;
   }
 
-  &__logo img {
-    padding: 14px 16px;
+  img {
+    width: 100%;
+    transition: width 0.3s ease;
   }
-  .header__nav {
-    overflow: hidden;
-    background-color: transparent;
-    margin: 0 5rem;
-    ul,
-    li {
-      display: flex;
-      flex-direction: row;
-    }
+
+  &__nav ul {
+    display: flex;
+    gap: 3rem;
     a {
-      float: left;
       color: $clr-light;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-
-      &:hover {
-        color: $clr-primary;
-        transition: all 0.3s ease-in-out;
-      }
     }
   }
+}
 
-  .header {
-    .offscreen__menu {
-      display: none;
-      justify-content: space-between;
-    }
-    &__wrapper {
-      position: absolute;
-      width: 100%;
-      margin: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    &__logo img {
-      padding: 14px 16px;
-    }
-    .header__nav {
-      overflow: hidden;
-      background-color: transparent;
-      margin: 0 5rem;
-      ul,
-      li {
-        display: flex;
-        flex-direction: row;
-      }
-      a {
-        float: left;
-        color: $clr-light;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-
-        &:hover {
-          color: $clr-primary;
-          transition: all 0.3s ease-in-out;
-        }
-      }
-    }
+.header.scrolled {
+  background-color: $clr-darkgreen;
+  img {
+    width: 70%;
   }
-
-  @media screen and (max-width: 500px) {
-    &__logo img {
-      max-width: 100px;
-    }
-
-    .header__nav a {
-      font-size: 1.4rem;
-      padding: 1rem 0.5rem;
-    }
+  
+  .header__wrapper {
+    padding-block: 1rem;
   }
 }

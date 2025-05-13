@@ -123,86 +123,40 @@ input {
   padding: 0 1.6rem;
 }
 
-.header .offscreen__menu {
-  display: none;
-  justify-content: space-between;
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: background-color 0.5s ease-in-out;
 }
 .header__wrapper {
-  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 2rem;
+  transition: 0.5s ease;
+}
+.header img {
   width: 100%;
-  margin: 20px;
+  transition: width 0.3s ease;
+}
+.header__nav ul {
   display: flex;
-  justify-content: space-between;
+  gap: 3rem;
 }
-.header__logo img {
-  padding: 14px 16px;
-}
-.header .header__nav {
-  overflow: hidden;
-  background-color: transparent;
-  margin: 0 5rem;
-}
-.header .header__nav ul,
-.header .header__nav li {
-  display: flex;
-  flex-direction: row;
-}
-.header .header__nav a {
-  float: left;
+.header__nav ul a {
   color: #fff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
 }
-.header .header__nav a:hover {
-  color: #485342;
-  transition: all 0.3s ease-in-out;
+
+.header.scrolled {
+  background-color: #2f3a29;
 }
-.header .header .offscreen__menu {
-  display: none;
-  justify-content: space-between;
+.header.scrolled img {
+  width: 70%;
 }
-.header .header__wrapper {
-  position: absolute;
-  width: 100%;
-  margin: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-.header .header__logo img {
-  padding: 14px 16px;
-}
-.header .header .header__nav {
-  overflow: hidden;
-  background-color: transparent;
-  margin: 0 5rem;
-}
-.header .header .header__nav ul,
-.header .header .header__nav li {
-  display: flex;
-  flex-direction: row;
-}
-.header .header .header__nav a {
-  float: left;
-  color: #fff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-.header .header .header__nav a:hover {
-  color: #485342;
-  transition: all 0.3s ease-in-out;
-}
-@media screen and (max-width: 500px) {
-  .header__logo img {
-    max-width: 100px;
-  }
-  .header .header__nav a {
-    font-size: 1.4rem;
-    padding: 1rem 0.5rem;
-  }
+.header.scrolled .header__wrapper {
+  padding-block: 1rem;
 }
 
 .footer {
@@ -410,7 +364,7 @@ input {
 }
 
 .banner {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url(/img/bali-banner.png) center/cover no-repeat;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url("../img/bali-banner.png") center/cover no-repeat;
 }
 .banner img {
   max-width: 100%;
@@ -455,32 +409,6 @@ input {
   border: 2px solid #fff;
   font-family: "poppins", sans-serif;
 }
-@media screen and (max-width: 500px) {
-  .banner__text {
-    padding: 10rem 2rem;
-    align-items: center;
-    text-align: center;
-  }
-  .banner h2 {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-  }
-  .banner h1 {
-    font-size: 3rem;
-    letter-spacing: 0.5rem;
-    margin-bottom: 3rem;
-  }
-  .banner p {
-    width: 100%;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  .banner .btn {
-    width: 100%;
-    max-width: 15rem;
-    font-size: 1rem;
-  }
-}
 
 .article {
   padding: 5rem 0 5rem;
@@ -497,6 +425,8 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-block-start: 3rem;
+  padding-bottom: 4rem;
 }
 .article__wrapper .article__card {
   border: none;
@@ -527,30 +457,6 @@ input {
   color: #485342;
   text-transform: uppercase;
   margin-bottom: 2rem;
-}
-@media screen and (max-width: 500px) {
-  .article h2 {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-  .article__wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-  .article .article__card {
-    margin: 2rem 0;
-    height: auto;
-    width: 100%;
-    padding: 0 2rem;
-  }
-  .article .article__card img {
-    width: 100%;
-    height: 30rem;
-    margin-top: 3rem;
-  }
-  .article .article__card .article__text h3 {
-    font-size: 1.2rem;
-  }
 }
 
 .about__wrapper {
@@ -670,7 +576,8 @@ input {
   font-size: 4rem;
   text-transform: uppercase;
 }
-.testimonial p, .testimonial small {
+.testimonial p,
+.testimonial small {
   font-family: "poppins", sans-serif;
   font-weight: 300;
   margin: 2rem 25rem;
@@ -684,7 +591,8 @@ input {
     font-size: 2.2rem;
     margin: 1.5rem 0;
   }
-  .testimonial p, .testimonial small {
+  .testimonial p,
+  .testimonial small {
     margin: 1.5rem 0;
     font-size: 1rem;
   }
